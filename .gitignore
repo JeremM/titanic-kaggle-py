@@ -99,3 +99,10 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+##################
+### automatic python gitignore before this line
+#################
+
+# intellij
+.idea
