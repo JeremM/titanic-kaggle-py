@@ -1,5 +1,10 @@
 # titanic-kaggle-py
 
+## List of exploratory notebooks
+
+https://jeremm.github.io/titanic-kaggle-py/analysis.html
+
+
 ## project structure example
 ```
 ├── LICENSE
