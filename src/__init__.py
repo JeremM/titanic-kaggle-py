@@ -8,7 +8,7 @@ if __name__ == '__main__':
         choice = input("| Welcome \n"
                        "|------------------------------- \n"
                        "| What's your choice ? \n"
-                       "| 1 : First Titanic kaggle : with Random Forest \n"
+                       "| 1 : First naive Titanic kaggle : with Random Forest and grid search\n"
                        "|------------------------------- \n"
                        "| Sortir : e \n")
 

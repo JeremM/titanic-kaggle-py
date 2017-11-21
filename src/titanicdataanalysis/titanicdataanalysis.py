@@ -1,8 +1,10 @@
 import pandas as pd
 import logging
 
+from sklearn.model_selection import GridSearchCV
+from sklearn.metrics import classification_report, accuracy_score
+from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.model_selection import cross_val_score
 
 def myfunc():
     print("Hello module!")
@@ -24,20 +26,45 @@ def loadingData(dataPath='../../data/', logLevel="DEBUG"):
     train_df = pd.read_csv(dataPath+"train.csv")
     print(train_df.head())
 
-    # train_df = pd.read_csv(open("C:/Users/Jérémie/IdeaProjects/titanic-kaggle-py/data/train.csv", 'r'))
-    rt = RandomForestClassifier(n_estimators=100, max_depth=None, min_samples_split=3, random_state=0)
+    train_df['AgeMed'] = train_df['Age'].fillna((train_df['Age'].median()))
+    train_df['isAgeKnown'] = train_df['Age'].where(train_df["Age"].isnull(), 1).fillna(0).astype(int)
 
-    columns = ["Fare", "Pclass","SibSp","Parch"]
+
+    train_df = pd.concat([train_df, pd.get_dummies(train_df["Sex"])], axis=1)
+    train_df = pd.concat([train_df, pd.get_dummies(train_df["Embarked"].fillna("embarkedNotKnown"))], axis=1)
+    train_df.rename(columns={'C': 'Cherbourg','Q': 'Queenstown', 'S': 'Southampton'}, inplace=True)
+    train_df["FamilySize"]= train_df["SibSp"]+train_df["Parch"]
+    def extract_Title(row):
+        return row["Name"].split(', ' )[1].split(".")[0]
+    train_df["Title"] = train_df.apply(extract_Title,axis=1)
+    train_df = pd.concat([train_df, pd.get_dummies(train_df["Title"])], axis=1)
+
+    columns = ["Fare", "Pclass","SibSp","Parch",
+               "female","male",
+               "AgeMed","isAgeKnown",
+               "Cherbourg","Queenstown","Southampton",
+               "FamilySize",
+               "Master", "Miss", "Mr", "Mrs", "Ms", "Rev",
+               ]
 
     labels = train_df["Survived"].values
     features = train_df[list(columns)].values
 
-    cross_val_result = cross_val_score(rt, features, labels, cv=5, n_jobs=-1)
-    score_mean = cross_val_result.mean()
-    score_max = cross_val_result.max()
+    X_train, X_test, y_train, y_test = train_test_split(features, labels, test_size=0.3, random_state=0)
+    tuned_parameters = [{'n_estimators': [10, 100, 1000],
+                         'min_samples_split': [2,3]}]
 
-    print("{0} -> RF mean: {1}".format(columns, score_mean))
-    print("{0} -> RF_max: {1}".format(columns, score_max))
+
+    clf = GridSearchCV(RandomForestClassifier(), tuned_parameters, cv=10,
+                       scoring='accuracy', n_jobs=-1)
+    clf.fit(X_train, y_train)
+
+
+    # In[61]:
+
+    y_true, y_pred = y_test, clf.predict(X_test)
+    print(classification_report(y_true, y_pred))
+    print(accuracy_score(y_true, y_pred))
 
     return 1
 
