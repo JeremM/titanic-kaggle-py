@@ -15789,7 +15789,7 @@ memory usage: 83.6+ KB
         </div>
         <div class="cell border-box-sizing code_cell rendered">
             <div class="input">
-                <div class="prompt input_prompt">In&nbsp;[4]:</div>
+                <div class="prompt input_prompt">In&nbsp;[111]:</div>
                 <div class="inner_cell">
                     <div class="input_area">
                         <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span
@@ -15827,7 +15827,7 @@ memory usage: 83.6+ KB
                             <div class="bk-root">
                                 <a href="http://bokeh.pydata.org" target="_blank"
                                    class="bk-logo bk-logo-small bk-logo-notebook"></a>
-                                <span id="b8bdb08d-8ae4-4613-8522-da9be9287bb5">Loading BokehJS ...</span>
+                                <span id="8d43571f-324a-436d-9cd5-d6b29d942108">Loading BokehJS ...</span>
                             </div>
                         </div>
 
@@ -15837,10 +15837,10 @@ memory usage: 83.6+ KB
                         <div class="prompt"></div>
 
 
-                        <div id="9fd19e78-773b-42eb-a971-0c3b5707cf54"></div>
+                        <div id="c9b3b7ce-b8b4-4619-bb8f-81172c77743d"></div>
                         <div class="output_subarea output_javascript ">
                             <script type="text/javascript">
-                                var element = $('#9fd19e78-773b-42eb-a971-0c3b5707cf54');
+                                var element = $('#c9b3b7ce-b8b4-4619-bb8f-81172c77743d');
 
                                 (function (global) {
                                     function now() {
@@ -15882,7 +15882,7 @@ memory usage: 83.6+ KB
 
                                     function display_loaded() {
                                         if (window.Bokeh !== undefined) {
-                                            var el = document.getElementById("b8bdb08d-8ae4-4613-8522-da9be9287bb5");
+                                            var el = document.getElementById("8d43571f-324a-436d-9cd5-d6b29d942108");
                                             el.textContent = "BokehJS " + Bokeh.version + " successfully loaded.";
                                         } else if (Date.now() < window._bokeh_timeout) {
                                             setTimeout(display_loaded, 100)
@@ -15927,9 +15927,9 @@ memory usage: 83.6+ KB
                                             console.log("Bokeh: injecting script tag for BokehJS library: ", url);
                                             document.getElementsByTagName("head")[0].appendChild(s);
                                         }
-                                    };var element = document.getElementById("b8bdb08d-8ae4-4613-8522-da9be9287bb5");
+                                    };var element = document.getElementById("8d43571f-324a-436d-9cd5-d6b29d942108");
                                     if (element == null) {
-                                        console.log("Bokeh: ERROR: autoload.js configured with elementid 'b8bdb08d-8ae4-4613-8522-da9be9287bb5' but no matching script tag was found. ")
+                                        console.log("Bokeh: ERROR: autoload.js configured with elementid '8d43571f-324a-436d-9cd5-d6b29d942108' but no matching script tag was found. ")
                                         return false;
                                     }
 
@@ -15946,7 +15946,7 @@ memory usage: 83.6+ KB
 
                                         function (Bokeh) {
 
-                                            document.getElementById("b8bdb08d-8ae4-4613-8522-da9be9287bb5").textContent = "BokehJS is loading...";
+                                            document.getElementById("8d43571f-324a-436d-9cd5-d6b29d942108").textContent = "BokehJS is loading...";
                                         },
                                         function (Bokeh) {
                                             console.log("Bokeh: injecting CSS: https://cdn.pydata.org/bokeh/release/bokeh-0.12.5.min.css");
@@ -15971,7 +15971,7 @@ memory usage: 83.6+ KB
                                             console.log("Bokeh: BokehJS failed to load within specified timeout.");
                                             window._bokeh_failed_load = true;
                                         } else if (force !== true) {
-                                            var cell = $(document.getElementById("b8bdb08d-8ae4-4613-8522-da9be9287bb5")).parents('.cell').data().cell;
+                                            var cell = $(document.getElementById("8d43571f-324a-436d-9cd5-d6b29d942108")).parents('.cell').data().cell;
                                             cell.output_area.append_execute_result(NB_LOAD_WARNING)
                                         }
 
@@ -16008,7 +16008,7 @@ memory usage: 83.6+ KB
         </div>
         <div class="cell border-box-sizing code_cell rendered">
             <div class="input">
-                <div class="prompt input_prompt">In&nbsp;[5]:</div>
+                <div class="prompt input_prompt">In&nbsp;[110]:</div>
                 <div class="inner_cell">
                     <div class="input_area">
                         <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -28880,6 +28880,1641 @@ avg / total       0.82      0.82      0.82       268
                         </div>
 
                     </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="cell border-box-sizing text_cell rendered">
+            <div class="prompt input_prompt">
+            </div>
+            <div class="inner_cell">
+                <div class="text_cell_render border-box-sizing rendered_html">
+                    <p>Let's see feature importance :</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="cell border-box-sizing code_cell rendered">
+            <div class="input">
+                <div class="prompt input_prompt">In&nbsp;[166]:</div>
+                <div class="inner_cell">
+                    <div class="input_area">
+                        <div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span
+                                class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">range</span><span
+                                    class="p">(</span><span class="n">X_train</span><span class="o">.</span><span
+                                    class="n">shape</span><span class="p">[</span><span class="mi">1</span><span
+                                    class="p">]):</span>
+    <span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span
+                                    class="s1">&#39;Feature_name&#39;</span><span class="p">:</span> <span class="n">columns</span><span
+                                    class="p">[</span><span class="n">indices</span><span class="p">[</span><span
+                                    class="n">f</span><span class="p">]],</span> <span
+                                    class="s1">&#39;importance&#39;</span><span class="p">:</span> <span class="n">importances</span><span
+                                    class="p">[</span><span class="n">indices</span><span class="p">[</span><span
+                                    class="n">f</span><span class="p">]]</span> <span class="p">})</span>
+
+<span class="n">importance</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span
+                                    class="n">DataFrame</span><span class="p">(</span><span class="n">d</span><span
+                                    class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">bokeh.charts</span> <span class="k">import</span> <span
+                                    class="n">Bar</span>
+<span class="kn">from</span> <span class="nn">bokeh.charts.attributes</span> <span class="k">import</span> <span
+                                    class="n">ColorAttr</span><span class="p">,</span> <span class="n">CatAttr</span>
+<span class="kn">from</span> <span class="nn">bokeh.charts.builders.bar_builder</span> <span
+                                    class="k">import</span> <span class="n">BarBuilder</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">Bar</span><span class="p">(</span><span class="n">importance</span><span
+                                    class="p">,</span> <span class="n">values</span><span class="o">=</span><span
+                                    class="s1">&#39;importance&#39;</span><span class="p">,</span> <span
+                                    class="n">label</span><span class="o">=</span><span class="n">CatAttr</span><span
+                                    class="p">(</span><span class="n">columns</span><span class="o">=</span><span
+                                    class="p">[</span><span class="s1">&#39;Feature_name&#39;</span><span
+                                    class="p">],</span> <span class="n">sort</span><span class="o">=</span><span
+                                    class="kc">False</span><span class="p">),</span> <span class="n">legend</span><span
+                                    class="o">=</span><span class="s2">&quot;top_right&quot;</span><span
+                                    class="p">,</span>
+                 <span class="n">color</span><span class="o">=</span><span class="n">oneColor</span><span
+                                    class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</pre>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="output_wrapper">
+                <div class="output">
+
+
+                    <div class="output_area">
+                        <div class="prompt"></div>
+
+
+                        <div class="output_html rendered_html output_subarea ">
+
+
+                            <div class="bk-root">
+                                <div class="bk-plotdiv" id="102e88bd-2001-40a4-86e5-473d77e57aee"></div>
+                            </div>
+                            <script type="text/javascript">
+
+                                (function (global) {
+                                    function now() {
+                                        return new Date();
+                                    }
+
+                                    var force = false;
+
+                                    if (typeof (window._bokeh_onload_callbacks) === "undefined" || force === true) {
+                                        window._bokeh_onload_callbacks = [];
+                                        window._bokeh_is_loading = undefined;
+                                    }
+
+
+                                    if (typeof (window._bokeh_timeout) === "undefined" || force === true) {
+                                        window._bokeh_timeout = Date.now() + 0;
+                                        window._bokeh_failed_load = false;
+                                    }
+
+                                    var NB_LOAD_WARNING = {
+                                        'data': {
+                                            'text/html':
+                                            "<div style='background-color: #fdd'>\n" +
+                                            "<p>\n" +
+                                            "BokehJS does not appear to have successfully loaded. If loading BokehJS from CDN, this \n" +
+                                            "may be due to a slow or bad network connection. Possible fixes:\n" +
+                                            "</p>\n" +
+                                            "<ul>\n" +
+                                            "<li>re-rerun `output_notebook()` to attempt to load from CDN again, or</li>\n" +
+                                            "<li>use INLINE resources instead, as so:</li>\n" +
+                                            "</ul>\n" +
+                                            "<code>\n" +
+                                            "from bokeh.resources import INLINE\n" +
+                                            "output_notebook(resources=INLINE)\n" +
+                                            "</code>\n" +
+                                            "</div>"
+                                        }
+                                    };
+
+                                    function display_loaded() {
+                                        if (window.Bokeh !== undefined) {
+                                            var el = document.getElementById("102e88bd-2001-40a4-86e5-473d77e57aee");
+                                            el.textContent = "BokehJS " + Bokeh.version + " successfully loaded.";
+                                        } else if (Date.now() < window._bokeh_timeout) {
+                                            setTimeout(display_loaded, 100)
+                                        }
+                                    }
+
+                                    function run_callbacks() {
+                                        window._bokeh_onload_callbacks.forEach(function (callback) {
+                                            callback()
+                                        });
+                                        delete window._bokeh_onload_callbacks
+                                        console.info("Bokeh: all callbacks have finished");
+                                    }
+
+                                    function load_libs(js_urls, callback) {
+                                        window._bokeh_onload_callbacks.push(callback);
+                                        if (window._bokeh_is_loading > 0) {
+                                            console.log("Bokeh: BokehJS is being loaded, scheduling callback at", now());
+                                            return null;
+                                        }
+                                        if (js_urls == null || js_urls.length === 0) {
+                                            run_callbacks();
+                                            return null;
+                                        }
+                                        console.log("Bokeh: BokehJS not loaded, scheduling load and callback at", now());
+                                        window._bokeh_is_loading = js_urls.length;
+                                        for (var i = 0; i < js_urls.length; i++) {
+                                            var url = js_urls[i];
+                                            var s = document.createElement('script');
+                                            s.src = url;
+                                            s.async = false;
+                                            s.onreadystatechange = s.onload = function () {
+                                                window._bokeh_is_loading--;
+                                                if (window._bokeh_is_loading === 0) {
+                                                    console.log("Bokeh: all BokehJS libraries loaded");
+                                                    run_callbacks()
+                                                }
+                                            };
+                                            s.onerror = function () {
+                                                console.warn("failed to load library " + url);
+                                            };
+                                            console.log("Bokeh: injecting script tag for BokehJS library: ", url);
+                                            document.getElementsByTagName("head")[0].appendChild(s);
+                                        }
+                                    };var element = document.getElementById("102e88bd-2001-40a4-86e5-473d77e57aee");
+                                    if (element == null) {
+                                        console.log("Bokeh: ERROR: autoload.js configured with elementid '102e88bd-2001-40a4-86e5-473d77e57aee' but no matching script tag was found. ")
+                                        return false;
+                                    }
+
+                                    var js_urls = [];
+
+                                    var inline_js = [
+                                        function (Bokeh) {
+                                            (function () {
+                                                var fn = function () {
+                                                    var docs_json = {
+                                                        "e89b1889-b20d-4c46-82a6-a96bd7bd321f": {
+                                                            "roots": {
+                                                                "references": [{
+                                                                    "attributes": {
+                                                                        "callback": null,
+                                                                        "column_names": ["x", "y", "width", "height", "color", "fill_alpha", "line_color", "line_alpha", "label"],
+                                                                        "data": {
+                                                                            "Feature_name": ["isAgeKnown"],
+                                                                            "chart_index": [{"Feature_name": "isAgeKnown"}],
+                                                                            "color": ["#2b83ba"],
+                                                                            "fill_alpha": [0.8],
+                                                                            "height": [0.00760306348230389],
+                                                                            "label": [{"Feature_name": "isAgeKnown"}],
+                                                                            "line_alpha": [1.0],
+                                                                            "line_color": ["white"],
+                                                                            "width": [0.8],
+                                                                            "x": ["isAgeKnown"],
+                                                                            "y": [0.003801531741151945]
+                                                                        }
+                                                                    },
+                                                                    "id": "7c8ac1a7-8be5-48df-85c7-9a01c62f1c7b",
+                                                                    "type": "ColumnDataSource"
+                                                                }, {
+                                                                    "attributes": {"plot": null, "text": null},
+                                                                    "id": "cb9dba08-7aad-4e40-91d3-028372e71d7e",
+                                                                    "type": "Title"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "callback": null,
+                                                                        "column_names": ["x", "y", "width", "height", "color", "fill_alpha", "line_color", "line_alpha", "label"],
+                                                                        "data": {
+                                                                            "Feature_name": ["Mr"],
+                                                                            "chart_index": [{"Feature_name": "Mr"}],
+                                                                            "color": ["#2b83ba"],
+                                                                            "fill_alpha": [0.8],
+                                                                            "height": [0.28047789461846034],
+                                                                            "label": [{"Feature_name": "Mr"}],
+                                                                            "line_alpha": [1.0],
+                                                                            "line_color": ["white"],
+                                                                            "width": [0.8],
+                                                                            "x": ["Mr"],
+                                                                            "y": [0.14023894730923017]
+                                                                        }
+                                                                    },
+                                                                    "id": "1af3b6cd-fcca-48e7-bd9b-349b97d5d14b",
+                                                                    "type": "ColumnDataSource"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "callback": null,
+                                                                        "column_names": ["x", "y", "width", "height", "color", "fill_alpha", "line_color", "line_alpha", "label"],
+                                                                        "data": {
+                                                                            "Feature_name": ["Southampton"],
+                                                                            "chart_index": [{"Feature_name": "Southampton"}],
+                                                                            "color": ["#2b83ba"],
+                                                                            "fill_alpha": [0.8],
+                                                                            "height": [0.012017265478192273],
+                                                                            "label": [{"Feature_name": "Southampton"}],
+                                                                            "line_alpha": [1.0],
+                                                                            "line_color": ["white"],
+                                                                            "width": [0.8],
+                                                                            "x": ["Southampton"],
+                                                                            "y": [0.006008632739096137]
+                                                                        }
+                                                                    },
+                                                                    "id": "8a8d1788-af3c-4c7a-93d7-fb654473a854",
+                                                                    "type": "ColumnDataSource"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "callback": null,
+                                                                        "column_names": ["x", "y", "width", "height", "color", "fill_alpha", "line_color", "line_alpha", "label"],
+                                                                        "data": {
+                                                                            "Feature_name": ["Cherbourg"],
+                                                                            "chart_index": [{"Feature_name": "Cherbourg"}],
+                                                                            "color": ["#2b83ba"],
+                                                                            "fill_alpha": [0.8],
+                                                                            "height": [0.005826403195227741],
+                                                                            "label": [{"Feature_name": "Cherbourg"}],
+                                                                            "line_alpha": [1.0],
+                                                                            "line_color": ["white"],
+                                                                            "width": [0.8],
+                                                                            "x": ["Cherbourg"],
+                                                                            "y": [0.0029132015976138705]
+                                                                        }
+                                                                    },
+                                                                    "id": "232451b5-f3fa-4e54-8e68-d08f5016e323",
+                                                                    "type": "ColumnDataSource"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "data_source": {
+                                                                            "id": "8a8d1788-af3c-4c7a-93d7-fb654473a854",
+                                                                            "type": "ColumnDataSource"
+                                                                        },
+                                                                        "glyph": {
+                                                                            "id": "4fe2cc74-39c5-48d9-ad8b-4d3f9301330e",
+                                                                            "type": "Rect"
+                                                                        },
+                                                                        "hover_glyph": null,
+                                                                        "muted_glyph": null
+                                                                    },
+                                                                    "id": "21e78906-b2e6-4e05-a8dd-11758bfbb775",
+                                                                    "type": "GlyphRenderer"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "callback": null,
+                                                                        "column_names": ["x", "y", "width", "height", "color", "fill_alpha", "line_color", "line_alpha", "label"],
+                                                                        "data": {
+                                                                            "Feature_name": ["Master"],
+                                                                            "chart_index": [{"Feature_name": "Master"}],
+                                                                            "color": ["#2b83ba"],
+                                                                            "fill_alpha": [0.8],
+                                                                            "height": [0.007928098546086273],
+                                                                            "label": [{"Feature_name": "Master"}],
+                                                                            "line_alpha": [1.0],
+                                                                            "line_color": ["white"],
+                                                                            "width": [0.8],
+                                                                            "x": ["Master"],
+                                                                            "y": [0.003964049273043137]
+                                                                        }
+                                                                    },
+                                                                    "id": "43efa1bf-372d-4bf6-b034-019fbd386727",
+                                                                    "type": "ColumnDataSource"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "callback": null,
+                                                                        "column_names": ["x", "y", "width", "height", "color", "fill_alpha", "line_color", "line_alpha", "label"],
+                                                                        "data": {
+                                                                            "Feature_name": ["Miss"],
+                                                                            "chart_index": [{"Feature_name": "Miss"}],
+                                                                            "color": ["#2b83ba"],
+                                                                            "fill_alpha": [0.8],
+                                                                            "height": [0.002322617652676288],
+                                                                            "label": [{"Feature_name": "Miss"}],
+                                                                            "line_alpha": [1.0],
+                                                                            "line_color": ["white"],
+                                                                            "width": [0.8],
+                                                                            "x": ["Miss"],
+                                                                            "y": [0.001161308826338144]
+                                                                        }
+                                                                    },
+                                                                    "id": "a645c3a4-babf-4ca3-a3e4-9cf07b5ffb4b",
+                                                                    "type": "ColumnDataSource"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "fill_alpha": {"field": "fill_alpha"},
+                                                                        "fill_color": {"field": "color"},
+                                                                        "height": {"field": "height", "units": "data"},
+                                                                        "line_color": {"field": "line_color"},
+                                                                        "width": {"field": "width", "units": "data"},
+                                                                        "x": {"field": "x"},
+                                                                        "y": {"field": "y"}
+                                                                    },
+                                                                    "id": "f11c0c5a-a3fd-430a-ab5e-281d0212e5eb",
+                                                                    "type": "Rect"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "data_source": {
+                                                                            "id": "43efa1bf-372d-4bf6-b034-019fbd386727",
+                                                                            "type": "ColumnDataSource"
+                                                                        },
+                                                                        "glyph": {
+                                                                            "id": "0526d6c5-5ee8-44f8-8520-5a8e03b517dd",
+                                                                            "type": "Rect"
+                                                                        },
+                                                                        "hover_glyph": null,
+                                                                        "muted_glyph": null
+                                                                    },
+                                                                    "id": "ecedfc55-3b2e-41e3-adec-cde35d455d7c",
+                                                                    "type": "GlyphRenderer"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "label": {"value": "Mr"},
+                                                                        "renderers": [{
+                                                                            "id": "cf77a962-7ab7-406d-8b69-bc5bacf441b3",
+                                                                            "type": "GlyphRenderer"
+                                                                        }]
+                                                                    },
+                                                                    "id": "d2278898-b658-4a78-9c8c-9821ad0cb18b",
+                                                                    "type": "LegendItem"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "items": [{
+                                                                            "id": "d2278898-b658-4a78-9c8c-9821ad0cb18b",
+                                                                            "type": "LegendItem"
+                                                                        }, {
+                                                                            "id": "25e02011-b006-4dff-864f-a7d259bf935e",
+                                                                            "type": "LegendItem"
+                                                                        }, {
+                                                                            "id": "d2955005-3cf8-42a6-b089-6bb6337a03b1",
+                                                                            "type": "LegendItem"
+                                                                        }, {
+                                                                            "id": "53f3ee66-59e6-4032-a209-989c6d86439a",
+                                                                            "type": "LegendItem"
+                                                                        }, {
+                                                                            "id": "59141ae4-6cd8-4e1b-91f1-cdd2b08801c7",
+                                                                            "type": "LegendItem"
+                                                                        }, {
+                                                                            "id": "04a7fb02-609f-4c79-b4f1-e4d70592fc0f",
+                                                                            "type": "LegendItem"
+                                                                        }, {
+                                                                            "id": "0fa235c2-4b40-4673-8d8f-e83bed3586cf",
+                                                                            "type": "LegendItem"
+                                                                        }, {
+                                                                            "id": "76157243-6a65-4f51-882f-aa2d48f35ff0",
+                                                                            "type": "LegendItem"
+                                                                        }, {
+                                                                            "id": "ac92717e-4a35-4763-af77-e16bae57ba0b",
+                                                                            "type": "LegendItem"
+                                                                        }, {
+                                                                            "id": "5e8defbc-4ebf-48b3-bdf9-faf670a3a31d",
+                                                                            "type": "LegendItem"
+                                                                        }, {
+                                                                            "id": "063f6cb5-c031-4ae3-8997-234e83cd40f9",
+                                                                            "type": "LegendItem"
+                                                                        }, {
+                                                                            "id": "e086df30-4e51-48af-a252-a2790f567dc0",
+                                                                            "type": "LegendItem"
+                                                                        }, {
+                                                                            "id": "6826b5de-e942-48a0-bcfd-7b49cdb73423",
+                                                                            "type": "LegendItem"
+                                                                        }, {
+                                                                            "id": "c9100fda-980e-480d-bad9-210dc410f087",
+                                                                            "type": "LegendItem"
+                                                                        }, {
+                                                                            "id": "1286d9fb-4a7d-4e16-bf1d-50b2a6a1e584",
+                                                                            "type": "LegendItem"
+                                                                        }, {
+                                                                            "id": "9c5162b4-e26f-4028-8574-9f82407d6135",
+                                                                            "type": "LegendItem"
+                                                                        }, {
+                                                                            "id": "5011e55c-4397-454b-8968-16df85f75f57",
+                                                                            "type": "LegendItem"
+                                                                        }, {
+                                                                            "id": "a4097d72-d45a-425a-bee1-49430c4664d0",
+                                                                            "type": "LegendItem"
+                                                                        }],
+                                                                        "plot": {
+                                                                            "id": "0d9c9ea0-8f76-4423-9462-f57458c6391b",
+                                                                            "subtype": "Chart",
+                                                                            "type": "Plot"
+                                                                        }
+                                                                    },
+                                                                    "id": "97cd90c7-f8db-4264-958a-3c669788ce4b",
+                                                                    "type": "Legend"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "label": {"value": "SibSp"},
+                                                                        "renderers": [{
+                                                                            "id": "e65d74fa-93d0-4048-a69f-364840f77b34",
+                                                                            "type": "GlyphRenderer"
+                                                                        }]
+                                                                    },
+                                                                    "id": "76157243-6a65-4f51-882f-aa2d48f35ff0",
+                                                                    "type": "LegendItem"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "fill_alpha": {"field": "fill_alpha"},
+                                                                        "fill_color": {"field": "color"},
+                                                                        "height": {"field": "height", "units": "data"},
+                                                                        "line_color": {"field": "line_color"},
+                                                                        "width": {"field": "width", "units": "data"},
+                                                                        "x": {"field": "x"},
+                                                                        "y": {"field": "y"}
+                                                                    },
+                                                                    "id": "0526d6c5-5ee8-44f8-8520-5a8e03b517dd",
+                                                                    "type": "Rect"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "callback": null,
+                                                                        "column_names": ["x", "y", "width", "height", "color", "fill_alpha", "line_color", "line_alpha", "label"],
+                                                                        "data": {
+                                                                            "Feature_name": ["Parch"],
+                                                                            "chart_index": [{"Feature_name": "Parch"}],
+                                                                            "color": ["#2b83ba"],
+                                                                            "fill_alpha": [0.8],
+                                                                            "height": [0.005776403570210373],
+                                                                            "label": [{"Feature_name": "Parch"}],
+                                                                            "line_alpha": [1.0],
+                                                                            "line_color": ["white"],
+                                                                            "width": [0.8],
+                                                                            "x": ["Parch"],
+                                                                            "y": [0.0028882017851051866]
+                                                                        }
+                                                                    },
+                                                                    "id": "45ae6148-c5b5-4156-a386-d4328df1be9a",
+                                                                    "type": "ColumnDataSource"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "fill_alpha": {"field": "fill_alpha"},
+                                                                        "fill_color": {"field": "color"},
+                                                                        "height": {"field": "height", "units": "data"},
+                                                                        "line_color": {"field": "line_color"},
+                                                                        "width": {"field": "width", "units": "data"},
+                                                                        "x": {"field": "x"},
+                                                                        "y": {"field": "y"}
+                                                                    },
+                                                                    "id": "5c86e296-a67f-4954-9576-6f9e835c8555",
+                                                                    "type": "Rect"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "data_source": {
+                                                                            "id": "7c8ac1a7-8be5-48df-85c7-9a01c62f1c7b",
+                                                                            "type": "ColumnDataSource"
+                                                                        },
+                                                                        "glyph": {
+                                                                            "id": "5c86e296-a67f-4954-9576-6f9e835c8555",
+                                                                            "type": "Rect"
+                                                                        },
+                                                                        "hover_glyph": null,
+                                                                        "muted_glyph": null
+                                                                    },
+                                                                    "id": "7ee75fd7-df51-47d7-ad8c-5ff96ee457de",
+                                                                    "type": "GlyphRenderer"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "callback": null,
+                                                                        "column_names": ["x", "y", "width", "height", "color", "fill_alpha", "line_color", "line_alpha", "label"],
+                                                                        "data": {
+                                                                            "Feature_name": ["Rev"],
+                                                                            "chart_index": [{"Feature_name": "Rev"}],
+                                                                            "color": ["#2b83ba"],
+                                                                            "fill_alpha": [0.8],
+                                                                            "height": [0.007430441714993639],
+                                                                            "label": [{"Feature_name": "Rev"}],
+                                                                            "line_alpha": [1.0],
+                                                                            "line_color": ["white"],
+                                                                            "width": [0.8],
+                                                                            "x": ["Rev"],
+                                                                            "y": [0.0037152208574968196]
+                                                                        }
+                                                                    },
+                                                                    "id": "ae8dd7cd-7204-49b1-94c6-8992fcd0cda0",
+                                                                    "type": "ColumnDataSource"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "fill_alpha": {"field": "fill_alpha"},
+                                                                        "fill_color": {"field": "color"},
+                                                                        "height": {"field": "height", "units": "data"},
+                                                                        "line_color": {"field": "line_color"},
+                                                                        "width": {"field": "width", "units": "data"},
+                                                                        "x": {"field": "x"},
+                                                                        "y": {"field": "y"}
+                                                                    },
+                                                                    "id": "66aa26b9-45f9-4519-bc4b-b1858b0c75ad",
+                                                                    "type": "Rect"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "data_source": {
+                                                                            "id": "1af3b6cd-fcca-48e7-bd9b-349b97d5d14b",
+                                                                            "type": "ColumnDataSource"
+                                                                        },
+                                                                        "glyph": {
+                                                                            "id": "b9db6af7-9420-4672-aa25-0da295098d12",
+                                                                            "type": "Rect"
+                                                                        },
+                                                                        "hover_glyph": null,
+                                                                        "muted_glyph": null
+                                                                    },
+                                                                    "id": "cf77a962-7ab7-406d-8b69-bc5bacf441b3",
+                                                                    "type": "GlyphRenderer"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "fill_alpha": {"field": "fill_alpha"},
+                                                                        "fill_color": {"field": "color"},
+                                                                        "height": {"field": "height", "units": "data"},
+                                                                        "line_color": {"field": "line_color"},
+                                                                        "width": {"field": "width", "units": "data"},
+                                                                        "x": {"field": "x"},
+                                                                        "y": {"field": "y"}
+                                                                    },
+                                                                    "id": "21f062e0-da2c-46d1-b8e5-0ce388932f8b",
+                                                                    "type": "Rect"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "fill_alpha": {"field": "fill_alpha"},
+                                                                        "fill_color": {"field": "color"},
+                                                                        "height": {"field": "height", "units": "data"},
+                                                                        "line_color": {"field": "line_color"},
+                                                                        "width": {"field": "width", "units": "data"},
+                                                                        "x": {"field": "x"},
+                                                                        "y": {"field": "y"}
+                                                                    },
+                                                                    "id": "cf9e5d39-31d5-4941-9b22-f0b755100e6f",
+                                                                    "type": "Rect"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "label": {"value": "Master"},
+                                                                        "renderers": [{
+                                                                            "id": "ecedfc55-3b2e-41e3-adec-cde35d455d7c",
+                                                                            "type": "GlyphRenderer"
+                                                                        }]
+                                                                    },
+                                                                    "id": "5e8defbc-4ebf-48b3-bdf9-faf670a3a31d",
+                                                                    "type": "LegendItem"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "data_source": {
+                                                                            "id": "afc4f7c3-0920-4aff-987d-1de056360388",
+                                                                            "type": "ColumnDataSource"
+                                                                        },
+                                                                        "glyph": {
+                                                                            "id": "cf9e5d39-31d5-4941-9b22-f0b755100e6f",
+                                                                            "type": "Rect"
+                                                                        },
+                                                                        "hover_glyph": null,
+                                                                        "muted_glyph": null
+                                                                    },
+                                                                    "id": "fd1456f9-29a4-4c9b-9fa7-b2f20a5c77c3",
+                                                                    "type": "GlyphRenderer"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "data_source": {
+                                                                            "id": "ae8dd7cd-7204-49b1-94c6-8992fcd0cda0",
+                                                                            "type": "ColumnDataSource"
+                                                                        },
+                                                                        "glyph": {
+                                                                            "id": "21f062e0-da2c-46d1-b8e5-0ce388932f8b",
+                                                                            "type": "Rect"
+                                                                        },
+                                                                        "hover_glyph": null,
+                                                                        "muted_glyph": null
+                                                                    },
+                                                                    "id": "ab85a81c-0b1d-44d2-8291-9c42a893c3ea",
+                                                                    "type": "GlyphRenderer"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "label": {"value": "Southampton"},
+                                                                        "renderers": [{
+                                                                            "id": "21e78906-b2e6-4e05-a8dd-11758bfbb775",
+                                                                            "type": "GlyphRenderer"
+                                                                        }]
+                                                                    },
+                                                                    "id": "ac92717e-4a35-4763-af77-e16bae57ba0b",
+                                                                    "type": "LegendItem"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "callback": null,
+                                                                        "column_names": ["x", "y", "width", "height", "color", "fill_alpha", "line_color", "line_alpha", "label"],
+                                                                        "data": {
+                                                                            "Feature_name": ["Ms"],
+                                                                            "chart_index": [{"Feature_name": "Ms"}],
+                                                                            "color": ["#2b83ba"],
+                                                                            "fill_alpha": [0.8],
+                                                                            "height": [0.0],
+                                                                            "label": [{"Feature_name": "Ms"}],
+                                                                            "line_alpha": [1.0],
+                                                                            "line_color": ["white"],
+                                                                            "width": [0.8],
+                                                                            "x": ["Ms"],
+                                                                            "y": [0.0]
+                                                                        }
+                                                                    },
+                                                                    "id": "2c8b83e7-ed4b-4793-ba34-8c64522c93a9",
+                                                                    "type": "ColumnDataSource"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "data_source": {
+                                                                            "id": "232451b5-f3fa-4e54-8e68-d08f5016e323",
+                                                                            "type": "ColumnDataSource"
+                                                                        },
+                                                                        "glyph": {
+                                                                            "id": "0bbae1bd-3faa-4939-9ff1-68ddab514c44",
+                                                                            "type": "Rect"
+                                                                        },
+                                                                        "hover_glyph": null,
+                                                                        "muted_glyph": null
+                                                                    },
+                                                                    "id": "aec1caba-91e2-43a6-831e-c08336ac74c8",
+                                                                    "type": "GlyphRenderer"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "label": {"value": "FamilySize_scaled"},
+                                                                        "renderers": [{
+                                                                            "id": "b3c8025f-8f6c-4227-a3c2-0b07023e56f2",
+                                                                            "type": "GlyphRenderer"
+                                                                        }]
+                                                                    },
+                                                                    "id": "0fa235c2-4b40-4673-8d8f-e83bed3586cf",
+                                                                    "type": "LegendItem"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "fill_alpha": {"field": "fill_alpha"},
+                                                                        "fill_color": {"field": "color"},
+                                                                        "height": {"field": "height", "units": "data"},
+                                                                        "line_color": {"field": "line_color"},
+                                                                        "width": {"field": "width", "units": "data"},
+                                                                        "x": {"field": "x"},
+                                                                        "y": {"field": "y"}
+                                                                    },
+                                                                    "id": "0bbae1bd-3faa-4939-9ff1-68ddab514c44",
+                                                                    "type": "Rect"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "label": {"value": "Age_scaled"},
+                                                                        "renderers": [{
+                                                                            "id": "84264c04-8071-46ba-850a-634dd9d16fd1",
+                                                                            "type": "GlyphRenderer"
+                                                                        }]
+                                                                    },
+                                                                    "id": "04a7fb02-609f-4c79-b4f1-e4d70592fc0f",
+                                                                    "type": "LegendItem"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "callback": null,
+                                                                        "end": 0.29450178934938337
+                                                                    },
+                                                                    "id": "66e3b39d-3c63-4a8d-819b-c169e095eef2",
+                                                                    "type": "Range1d"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "label": {"value": "Queenstown"},
+                                                                        "renderers": [{
+                                                                            "id": "fd1456f9-29a4-4c9b-9fa7-b2f20a5c77c3",
+                                                                            "type": "GlyphRenderer"
+                                                                        }]
+                                                                    },
+                                                                    "id": "e086df30-4e51-48af-a252-a2790f567dc0",
+                                                                    "type": "LegendItem"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "fill_alpha": {"field": "fill_alpha"},
+                                                                        "fill_color": {"field": "color"},
+                                                                        "height": {"field": "height", "units": "data"},
+                                                                        "line_color": {"field": "line_color"},
+                                                                        "width": {"field": "width", "units": "data"},
+                                                                        "x": {"field": "x"},
+                                                                        "y": {"field": "y"}
+                                                                    },
+                                                                    "id": "147c8fd7-39f1-49ab-8c95-6fed0aa1fa1b",
+                                                                    "type": "Rect"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "below": [{
+                                                                            "id": "0efda9a2-333c-43cd-9fca-c68d9b4c04d6",
+                                                                            "type": "CategoricalAxis"
+                                                                        }],
+                                                                        "css_classes": null,
+                                                                        "left": [{
+                                                                            "id": "6ee81fe3-a962-47b9-ba12-53726e8d4ee5",
+                                                                            "type": "LinearAxis"
+                                                                        }],
+                                                                        "renderers": [{
+                                                                            "id": "7862b91f-35ac-4510-b452-96126d63790e",
+                                                                            "type": "BoxAnnotation"
+                                                                        }, {
+                                                                            "id": "cf77a962-7ab7-406d-8b69-bc5bacf441b3",
+                                                                            "type": "GlyphRenderer"
+                                                                        }, {
+                                                                            "id": "ad8b20d1-4ce2-44db-8907-3832b6fdecec",
+                                                                            "type": "GlyphRenderer"
+                                                                        }, {
+                                                                            "id": "9df10cc1-48d1-4a68-a21d-c3c094769255",
+                                                                            "type": "GlyphRenderer"
+                                                                        }, {
+                                                                            "id": "383a3064-b46d-4e46-ad30-4268c3a4c7f4",
+                                                                            "type": "GlyphRenderer"
+                                                                        }, {
+                                                                            "id": "042a7b1a-f7d9-4f54-a41b-d214d1217360",
+                                                                            "type": "GlyphRenderer"
+                                                                        }, {
+                                                                            "id": "84264c04-8071-46ba-850a-634dd9d16fd1",
+                                                                            "type": "GlyphRenderer"
+                                                                        }, {
+                                                                            "id": "b3c8025f-8f6c-4227-a3c2-0b07023e56f2",
+                                                                            "type": "GlyphRenderer"
+                                                                        }, {
+                                                                            "id": "e65d74fa-93d0-4048-a69f-364840f77b34",
+                                                                            "type": "GlyphRenderer"
+                                                                        }, {
+                                                                            "id": "21e78906-b2e6-4e05-a8dd-11758bfbb775",
+                                                                            "type": "GlyphRenderer"
+                                                                        }, {
+                                                                            "id": "ecedfc55-3b2e-41e3-adec-cde35d455d7c",
+                                                                            "type": "GlyphRenderer"
+                                                                        }, {
+                                                                            "id": "7ee75fd7-df51-47d7-ad8c-5ff96ee457de",
+                                                                            "type": "GlyphRenderer"
+                                                                        }, {
+                                                                            "id": "fd1456f9-29a4-4c9b-9fa7-b2f20a5c77c3",
+                                                                            "type": "GlyphRenderer"
+                                                                        }, {
+                                                                            "id": "ab85a81c-0b1d-44d2-8291-9c42a893c3ea",
+                                                                            "type": "GlyphRenderer"
+                                                                        }, {
+                                                                            "id": "aec1caba-91e2-43a6-831e-c08336ac74c8",
+                                                                            "type": "GlyphRenderer"
+                                                                        }, {
+                                                                            "id": "7f3c7bd0-e09e-4d1d-931b-9c2426c169b5",
+                                                                            "type": "GlyphRenderer"
+                                                                        }, {
+                                                                            "id": "4185fb86-0a77-45f1-ae18-8c6692837dc5",
+                                                                            "type": "GlyphRenderer"
+                                                                        }, {
+                                                                            "id": "9e5a0669-a12c-49f7-bddd-b72c364a20b6",
+                                                                            "type": "GlyphRenderer"
+                                                                        }, {
+                                                                            "id": "c19acf03-eda1-4722-a4c7-9c5880d0ace3",
+                                                                            "type": "GlyphRenderer"
+                                                                        }, {
+                                                                            "id": "97cd90c7-f8db-4264-958a-3c669788ce4b",
+                                                                            "type": "Legend"
+                                                                        }, {
+                                                                            "id": "0efda9a2-333c-43cd-9fca-c68d9b4c04d6",
+                                                                            "type": "CategoricalAxis"
+                                                                        }, {
+                                                                            "id": "6ee81fe3-a962-47b9-ba12-53726e8d4ee5",
+                                                                            "type": "LinearAxis"
+                                                                        }, {
+                                                                            "id": "72f5cde8-35ef-42ed-8578-0f284cad4a4e",
+                                                                            "type": "Grid"
+                                                                        }],
+                                                                        "title": {
+                                                                            "id": "cb9dba08-7aad-4e40-91d3-028372e71d7e",
+                                                                            "type": "Title"
+                                                                        },
+                                                                        "tool_events": {
+                                                                            "id": "c7a8a8a5-a981-4d13-9dc7-f07136279264",
+                                                                            "type": "ToolEvents"
+                                                                        },
+                                                                        "toolbar": {
+                                                                            "id": "dd1a1101-2eb1-44a0-9a8c-a9216097447d",
+                                                                            "type": "Toolbar"
+                                                                        },
+                                                                        "x_mapper_type": "auto",
+                                                                        "x_range": {
+                                                                            "id": "3f7f0a47-c8ef-44b2-b200-583a541aa274",
+                                                                            "type": "FactorRange"
+                                                                        },
+                                                                        "y_mapper_type": "auto",
+                                                                        "y_range": {
+                                                                            "id": "66e3b39d-3c63-4a8d-819b-c169e095eef2",
+                                                                            "type": "Range1d"
+                                                                        }
+                                                                    },
+                                                                    "id": "0d9c9ea0-8f76-4423-9462-f57458c6391b",
+                                                                    "subtype": "Chart",
+                                                                    "type": "Plot"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "label": {"value": "isAgeKnown"},
+                                                                        "renderers": [{
+                                                                            "id": "7ee75fd7-df51-47d7-ad8c-5ff96ee457de",
+                                                                            "type": "GlyphRenderer"
+                                                                        }]
+                                                                    },
+                                                                    "id": "063f6cb5-c031-4ae3-8997-234e83cd40f9",
+                                                                    "type": "LegendItem"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "callback": null,
+                                                                        "factors": ["Mr", "Fare", "male", "female", "Pclass_scaled", "Age_scaled", "FamilySize_scaled", "SibSp", "Southampton", "Master", "isAgeKnown", "Queenstown", "Rev", "Cherbourg", "Parch", "Miss", "Mrs", "Ms"]
+                                                                    },
+                                                                    "id": "3f7f0a47-c8ef-44b2-b200-583a541aa274",
+                                                                    "type": "FactorRange"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "data_source": {
+                                                                            "id": "45ae6148-c5b5-4156-a386-d4328df1be9a",
+                                                                            "type": "ColumnDataSource"
+                                                                        },
+                                                                        "glyph": {
+                                                                            "id": "147c8fd7-39f1-49ab-8c95-6fed0aa1fa1b",
+                                                                            "type": "Rect"
+                                                                        },
+                                                                        "hover_glyph": null,
+                                                                        "muted_glyph": null
+                                                                    },
+                                                                    "id": "7f3c7bd0-e09e-4d1d-931b-9c2426c169b5",
+                                                                    "type": "GlyphRenderer"
+                                                                }, {
+                                                                    "attributes": {},
+                                                                    "id": "c7a8a8a5-a981-4d13-9dc7-f07136279264",
+                                                                    "type": "ToolEvents"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "label": {"value": "Rev"},
+                                                                        "renderers": [{
+                                                                            "id": "ab85a81c-0b1d-44d2-8291-9c42a893c3ea",
+                                                                            "type": "GlyphRenderer"
+                                                                        }]
+                                                                    },
+                                                                    "id": "6826b5de-e942-48a0-bcfd-7b49cdb73423",
+                                                                    "type": "LegendItem"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "active_drag": "auto",
+                                                                        "active_scroll": "auto",
+                                                                        "active_tap": "auto",
+                                                                        "tools": [{
+                                                                            "id": "d660bfa3-ce01-4d38-9603-9801c021603e",
+                                                                            "type": "PanTool"
+                                                                        }, {
+                                                                            "id": "c475ec61-87ba-46df-9e51-8d865464d249",
+                                                                            "type": "WheelZoomTool"
+                                                                        }, {
+                                                                            "id": "3ea05865-f655-4885-804b-9b27d693a848",
+                                                                            "type": "BoxZoomTool"
+                                                                        }, {
+                                                                            "id": "939307ad-ad79-44f0-9f26-6ff1ba0cffcb",
+                                                                            "type": "SaveTool"
+                                                                        }, {
+                                                                            "id": "e74f6f80-c11d-4967-bbb8-980b3b2fb1e8",
+                                                                            "type": "ResetTool"
+                                                                        }, {
+                                                                            "id": "be08f248-79a3-4071-bcca-ccc412895a32",
+                                                                            "type": "HelpTool"
+                                                                        }]
+                                                                    },
+                                                                    "id": "dd1a1101-2eb1-44a0-9a8c-a9216097447d",
+                                                                    "type": "Toolbar"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "axis_label": "Sum( Importance )",
+                                                                        "formatter": {
+                                                                            "id": "25d275fd-cfb2-4103-8ff4-917dcafaa87b",
+                                                                            "type": "BasicTickFormatter"
+                                                                        },
+                                                                        "plot": {
+                                                                            "id": "0d9c9ea0-8f76-4423-9462-f57458c6391b",
+                                                                            "subtype": "Chart",
+                                                                            "type": "Plot"
+                                                                        },
+                                                                        "ticker": {
+                                                                            "id": "71c63e6e-f5ed-4430-b191-1e51bbd0cea6",
+                                                                            "type": "BasicTicker"
+                                                                        }
+                                                                    },
+                                                                    "id": "6ee81fe3-a962-47b9-ba12-53726e8d4ee5",
+                                                                    "type": "LinearAxis"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "label": {"value": "female"},
+                                                                        "renderers": [{
+                                                                            "id": "383a3064-b46d-4e46-ad30-4268c3a4c7f4",
+                                                                            "type": "GlyphRenderer"
+                                                                        }]
+                                                                    },
+                                                                    "id": "53f3ee66-59e6-4032-a209-989c6d86439a",
+                                                                    "type": "LegendItem"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "label": {"value": "Pclass_scaled"},
+                                                                        "renderers": [{
+                                                                            "id": "042a7b1a-f7d9-4f54-a41b-d214d1217360",
+                                                                            "type": "GlyphRenderer"
+                                                                        }]
+                                                                    },
+                                                                    "id": "59141ae4-6cd8-4e1b-91f1-cdd2b08801c7",
+                                                                    "type": "LegendItem"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "label": {"value": "Ms"},
+                                                                        "renderers": [{
+                                                                            "id": "c19acf03-eda1-4722-a4c7-9c5880d0ace3",
+                                                                            "type": "GlyphRenderer"
+                                                                        }]
+                                                                    },
+                                                                    "id": "a4097d72-d45a-425a-bee1-49430c4664d0",
+                                                                    "type": "LegendItem"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "data_source": {
+                                                                            "id": "a645c3a4-babf-4ca3-a3e4-9cf07b5ffb4b",
+                                                                            "type": "ColumnDataSource"
+                                                                        },
+                                                                        "glyph": {
+                                                                            "id": "66aa26b9-45f9-4519-bc4b-b1858b0c75ad",
+                                                                            "type": "Rect"
+                                                                        },
+                                                                        "hover_glyph": null,
+                                                                        "muted_glyph": null
+                                                                    },
+                                                                    "id": "4185fb86-0a77-45f1-ae18-8c6692837dc5",
+                                                                    "type": "GlyphRenderer"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "callback": null,
+                                                                        "column_names": ["x", "y", "width", "height", "color", "fill_alpha", "line_color", "line_alpha", "label"],
+                                                                        "data": {
+                                                                            "Feature_name": ["FamilySize_scaled"],
+                                                                            "chart_index": [{"Feature_name": "FamilySize_scaled"}],
+                                                                            "color": ["#2b83ba"],
+                                                                            "fill_alpha": [0.8],
+                                                                            "height": [0.08340480499928343],
+                                                                            "label": [{"Feature_name": "FamilySize_scaled"}],
+                                                                            "line_alpha": [1.0],
+                                                                            "line_color": ["white"],
+                                                                            "width": [0.8],
+                                                                            "x": ["FamilySize_scaled"],
+                                                                            "y": [0.041702402499641716]
+                                                                        }
+                                                                    },
+                                                                    "id": "9545e678-d675-4271-8584-f4175c25c85b",
+                                                                    "type": "ColumnDataSource"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "axis_label": "Feature_Name",
+                                                                        "formatter": {
+                                                                            "id": "04bbb35a-cbc1-4498-984a-6913e8def104",
+                                                                            "type": "CategoricalTickFormatter"
+                                                                        },
+                                                                        "major_label_orientation": 0.7853981633974483,
+                                                                        "plot": {
+                                                                            "id": "0d9c9ea0-8f76-4423-9462-f57458c6391b",
+                                                                            "subtype": "Chart",
+                                                                            "type": "Plot"
+                                                                        },
+                                                                        "ticker": {
+                                                                            "id": "37f94b54-eb17-4236-ad78-925f3d195176",
+                                                                            "type": "CategoricalTicker"
+                                                                        }
+                                                                    },
+                                                                    "id": "0efda9a2-333c-43cd-9fca-c68d9b4c04d6",
+                                                                    "type": "CategoricalAxis"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "callback": null,
+                                                                        "column_names": ["x", "y", "width", "height", "color", "fill_alpha", "line_color", "line_alpha", "label"],
+                                                                        "data": {
+                                                                            "Feature_name": ["female"],
+                                                                            "chart_index": [{"Feature_name": "female"}],
+                                                                            "color": ["#2b83ba"],
+                                                                            "fill_alpha": [0.8],
+                                                                            "height": [0.11389564776189705],
+                                                                            "label": [{"Feature_name": "female"}],
+                                                                            "line_alpha": [1.0],
+                                                                            "line_color": ["white"],
+                                                                            "width": [0.8],
+                                                                            "x": ["female"],
+                                                                            "y": [0.056947823880948524]
+                                                                        }
+                                                                    },
+                                                                    "id": "da593748-faf9-46e3-968b-3b5f062691f2",
+                                                                    "type": "ColumnDataSource"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "callback": null,
+                                                                        "column_names": ["x", "y", "width", "height", "color", "fill_alpha", "line_color", "line_alpha", "label"],
+                                                                        "data": {
+                                                                            "Feature_name": ["Mrs"],
+                                                                            "chart_index": [{"Feature_name": "Mrs"}],
+                                                                            "color": ["#2b83ba"],
+                                                                            "fill_alpha": [0.8],
+                                                                            "height": [0.001083923205568179],
+                                                                            "label": [{"Feature_name": "Mrs"}],
+                                                                            "line_alpha": [1.0],
+                                                                            "line_color": ["white"],
+                                                                            "width": [0.8],
+                                                                            "x": ["Mrs"],
+                                                                            "y": [0.0005419616027840896]
+                                                                        }
+                                                                    },
+                                                                    "id": "454fa331-2803-4bc4-8072-abc18184463f",
+                                                                    "type": "ColumnDataSource"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "fill_alpha": {"field": "fill_alpha"},
+                                                                        "fill_color": {"field": "color"},
+                                                                        "height": {"field": "height", "units": "data"},
+                                                                        "line_color": {"field": "line_color"},
+                                                                        "width": {"field": "width", "units": "data"},
+                                                                        "x": {"field": "x"},
+                                                                        "y": {"field": "y"}
+                                                                    },
+                                                                    "id": "4fe2cc74-39c5-48d9-ad8b-4d3f9301330e",
+                                                                    "type": "Rect"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "data_source": {
+                                                                            "id": "3081a756-a956-4a57-b639-d1674ea81c19",
+                                                                            "type": "ColumnDataSource"
+                                                                        },
+                                                                        "glyph": {
+                                                                            "id": "f11c0c5a-a3fd-430a-ab5e-281d0212e5eb",
+                                                                            "type": "Rect"
+                                                                        },
+                                                                        "hover_glyph": null,
+                                                                        "muted_glyph": null
+                                                                    },
+                                                                    "id": "ad8b20d1-4ce2-44db-8907-3832b6fdecec",
+                                                                    "type": "GlyphRenderer"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "callback": null,
+                                                                        "column_names": ["x", "y", "width", "height", "color", "fill_alpha", "line_color", "line_alpha", "label"],
+                                                                        "data": {
+                                                                            "Feature_name": ["Fare"],
+                                                                            "chart_index": [{"Feature_name": "Fare"}],
+                                                                            "color": ["#2b83ba"],
+                                                                            "fill_alpha": [0.8],
+                                                                            "height": [0.11716784551078172],
+                                                                            "label": [{"Feature_name": "Fare"}],
+                                                                            "line_alpha": [1.0],
+                                                                            "line_color": ["white"],
+                                                                            "width": [0.8],
+                                                                            "x": ["Fare"],
+                                                                            "y": [0.05858392275539086]
+                                                                        }
+                                                                    },
+                                                                    "id": "3081a756-a956-4a57-b639-d1674ea81c19",
+                                                                    "type": "ColumnDataSource"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "bottom_units": "screen",
+                                                                        "fill_alpha": {"value": 0.5},
+                                                                        "fill_color": {"value": "lightgrey"},
+                                                                        "left_units": "screen",
+                                                                        "level": "overlay",
+                                                                        "line_alpha": {"value": 1.0},
+                                                                        "line_color": {"value": "black"},
+                                                                        "line_dash": [4, 4],
+                                                                        "line_width": {"value": 2},
+                                                                        "plot": null,
+                                                                        "render_mode": "css",
+                                                                        "right_units": "screen",
+                                                                        "top_units": "screen"
+                                                                    },
+                                                                    "id": "7862b91f-35ac-4510-b452-96126d63790e",
+                                                                    "type": "BoxAnnotation"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "data_source": {
+                                                                            "id": "454fa331-2803-4bc4-8072-abc18184463f",
+                                                                            "type": "ColumnDataSource"
+                                                                        },
+                                                                        "glyph": {
+                                                                            "id": "b3ad51a6-f152-45c7-8f50-b6049add786d",
+                                                                            "type": "Rect"
+                                                                        },
+                                                                        "hover_glyph": null,
+                                                                        "muted_glyph": null
+                                                                    },
+                                                                    "id": "9e5a0669-a12c-49f7-bddd-b72c364a20b6",
+                                                                    "type": "GlyphRenderer"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "fill_alpha": {"field": "fill_alpha"},
+                                                                        "fill_color": {"field": "color"},
+                                                                        "height": {"field": "height", "units": "data"},
+                                                                        "line_color": {"field": "line_color"},
+                                                                        "width": {"field": "width", "units": "data"},
+                                                                        "x": {"field": "x"},
+                                                                        "y": {"field": "y"}
+                                                                    },
+                                                                    "id": "fd44900d-e91d-4d43-bc54-05018eac94db",
+                                                                    "type": "Rect"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "plot": {
+                                                                            "id": "0d9c9ea0-8f76-4423-9462-f57458c6391b",
+                                                                            "subtype": "Chart",
+                                                                            "type": "Plot"
+                                                                        }
+                                                                    },
+                                                                    "id": "c475ec61-87ba-46df-9e51-8d865464d249",
+                                                                    "type": "WheelZoomTool"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "callback": null,
+                                                                        "column_names": ["x", "y", "width", "height", "color", "fill_alpha", "line_color", "line_alpha", "label"],
+                                                                        "data": {
+                                                                            "Feature_name": ["male"],
+                                                                            "chart_index": [{"Feature_name": "male"}],
+                                                                            "color": ["#2b83ba"],
+                                                                            "fill_alpha": [0.8],
+                                                                            "height": [0.11399090202642737],
+                                                                            "label": [{"Feature_name": "male"}],
+                                                                            "line_alpha": [1.0],
+                                                                            "line_color": ["white"],
+                                                                            "width": [0.8],
+                                                                            "x": ["male"],
+                                                                            "y": [0.05699545101321368]
+                                                                        }
+                                                                    },
+                                                                    "id": "e2ebd50d-5a62-4902-b619-fb8aab73c195",
+                                                                    "type": "ColumnDataSource"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "label": {"value": "Parch"},
+                                                                        "renderers": [{
+                                                                            "id": "7f3c7bd0-e09e-4d1d-931b-9c2426c169b5",
+                                                                            "type": "GlyphRenderer"
+                                                                        }]
+                                                                    },
+                                                                    "id": "1286d9fb-4a7d-4e16-bf1d-50b2a6a1e584",
+                                                                    "type": "LegendItem"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "fill_alpha": {"field": "fill_alpha"},
+                                                                        "fill_color": {"field": "color"},
+                                                                        "height": {"field": "height", "units": "data"},
+                                                                        "line_color": {"field": "line_color"},
+                                                                        "width": {"field": "width", "units": "data"},
+                                                                        "x": {"field": "x"},
+                                                                        "y": {"field": "y"}
+                                                                    },
+                                                                    "id": "b3ad51a6-f152-45c7-8f50-b6049add786d",
+                                                                    "type": "Rect"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "callback": null,
+                                                                        "column_names": ["x", "y", "width", "height", "color", "fill_alpha", "line_color", "line_alpha", "label"],
+                                                                        "data": {
+                                                                            "Feature_name": ["Pclass_scaled"],
+                                                                            "chart_index": [{"Feature_name": "Pclass_scaled"}],
+                                                                            "color": ["#2b83ba"],
+                                                                            "fill_alpha": [0.8],
+                                                                            "height": [0.10074551100132294],
+                                                                            "label": [{"Feature_name": "Pclass_scaled"}],
+                                                                            "line_alpha": [1.0],
+                                                                            "line_color": ["white"],
+                                                                            "width": [0.8],
+                                                                            "x": ["Pclass_scaled"],
+                                                                            "y": [0.05037275550066147]
+                                                                        }
+                                                                    },
+                                                                    "id": "141e2d56-a4a6-408e-a0f9-850032efd8f4",
+                                                                    "type": "ColumnDataSource"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "fill_alpha": {"field": "fill_alpha"},
+                                                                        "fill_color": {"field": "color"},
+                                                                        "height": {"field": "height", "units": "data"},
+                                                                        "line_color": {"field": "line_color"},
+                                                                        "width": {"field": "width", "units": "data"},
+                                                                        "x": {"field": "x"},
+                                                                        "y": {"field": "y"}
+                                                                    },
+                                                                    "id": "7ec77f89-013d-4296-be13-76aba28f9c17",
+                                                                    "type": "Rect"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "data_source": {
+                                                                            "id": "e2ebd50d-5a62-4902-b619-fb8aab73c195",
+                                                                            "type": "ColumnDataSource"
+                                                                        },
+                                                                        "glyph": {
+                                                                            "id": "1831cfc6-87ba-4d00-b238-c635d4a87e00",
+                                                                            "type": "Rect"
+                                                                        },
+                                                                        "hover_glyph": null,
+                                                                        "muted_glyph": null
+                                                                    },
+                                                                    "id": "9df10cc1-48d1-4a68-a21d-c3c094769255",
+                                                                    "type": "GlyphRenderer"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "label": {"value": "Cherbourg"},
+                                                                        "renderers": [{
+                                                                            "id": "aec1caba-91e2-43a6-831e-c08336ac74c8",
+                                                                            "type": "GlyphRenderer"
+                                                                        }]
+                                                                    },
+                                                                    "id": "c9100fda-980e-480d-bad9-210dc410f087",
+                                                                    "type": "LegendItem"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "label": {"value": "Mrs"},
+                                                                        "renderers": [{
+                                                                            "id": "9e5a0669-a12c-49f7-bddd-b72c364a20b6",
+                                                                            "type": "GlyphRenderer"
+                                                                        }]
+                                                                    },
+                                                                    "id": "5011e55c-4397-454b-8968-16df85f75f57",
+                                                                    "type": "LegendItem"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "callback": null,
+                                                                        "column_names": ["x", "y", "width", "height", "color", "fill_alpha", "line_color", "line_alpha", "label"],
+                                                                        "data": {
+                                                                            "Feature_name": ["Queenstown"],
+                                                                            "chart_index": [{"Feature_name": "Queenstown"}],
+                                                                            "color": ["#2b83ba"],
+                                                                            "fill_alpha": [0.8],
+                                                                            "height": [0.007586328785632438],
+                                                                            "label": [{"Feature_name": "Queenstown"}],
+                                                                            "line_alpha": [1.0],
+                                                                            "line_color": ["white"],
+                                                                            "width": [0.8],
+                                                                            "x": ["Queenstown"],
+                                                                            "y": [0.003793164392816219]
+                                                                        }
+                                                                    },
+                                                                    "id": "afc4f7c3-0920-4aff-987d-1de056360388",
+                                                                    "type": "ColumnDataSource"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "label": {"value": "Miss"},
+                                                                        "renderers": [{
+                                                                            "id": "4185fb86-0a77-45f1-ae18-8c6692837dc5",
+                                                                            "type": "GlyphRenderer"
+                                                                        }]
+                                                                    },
+                                                                    "id": "9c5162b4-e26f-4028-8574-9f82407d6135",
+                                                                    "type": "LegendItem"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "overlay": {
+                                                                            "id": "7862b91f-35ac-4510-b452-96126d63790e",
+                                                                            "type": "BoxAnnotation"
+                                                                        },
+                                                                        "plot": {
+                                                                            "id": "0d9c9ea0-8f76-4423-9462-f57458c6391b",
+                                                                            "subtype": "Chart",
+                                                                            "type": "Plot"
+                                                                        }
+                                                                    },
+                                                                    "id": "3ea05865-f655-4885-804b-9b27d693a848",
+                                                                    "type": "BoxZoomTool"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "fill_alpha": {"field": "fill_alpha"},
+                                                                        "fill_color": {"field": "color"},
+                                                                        "height": {"field": "height", "units": "data"},
+                                                                        "line_color": {"field": "line_color"},
+                                                                        "width": {"field": "width", "units": "data"},
+                                                                        "x": {"field": "x"},
+                                                                        "y": {"field": "y"}
+                                                                    },
+                                                                    "id": "1831cfc6-87ba-4d00-b238-c635d4a87e00",
+                                                                    "type": "Rect"
+                                                                }, {
+                                                                    "attributes": {},
+                                                                    "id": "71c63e6e-f5ed-4430-b191-1e51bbd0cea6",
+                                                                    "type": "BasicTicker"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "dimension": 1,
+                                                                        "plot": {
+                                                                            "id": "0d9c9ea0-8f76-4423-9462-f57458c6391b",
+                                                                            "subtype": "Chart",
+                                                                            "type": "Plot"
+                                                                        },
+                                                                        "ticker": {
+                                                                            "id": "71c63e6e-f5ed-4430-b191-1e51bbd0cea6",
+                                                                            "type": "BasicTicker"
+                                                                        }
+                                                                    },
+                                                                    "id": "72f5cde8-35ef-42ed-8578-0f284cad4a4e",
+                                                                    "type": "Grid"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "fill_alpha": {"field": "fill_alpha"},
+                                                                        "fill_color": {"field": "color"},
+                                                                        "height": {"field": "height", "units": "data"},
+                                                                        "line_color": {"field": "line_color"},
+                                                                        "width": {"field": "width", "units": "data"},
+                                                                        "x": {"field": "x"},
+                                                                        "y": {"field": "y"}
+                                                                    },
+                                                                    "id": "2cba62ff-4750-461f-bac2-29c6c73a6dd9",
+                                                                    "type": "Rect"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "plot": {
+                                                                            "id": "0d9c9ea0-8f76-4423-9462-f57458c6391b",
+                                                                            "subtype": "Chart",
+                                                                            "type": "Plot"
+                                                                        }
+                                                                    },
+                                                                    "id": "be08f248-79a3-4071-bcca-ccc412895a32",
+                                                                    "type": "HelpTool"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "data_source": {
+                                                                            "id": "da593748-faf9-46e3-968b-3b5f062691f2",
+                                                                            "type": "ColumnDataSource"
+                                                                        },
+                                                                        "glyph": {
+                                                                            "id": "2cba62ff-4750-461f-bac2-29c6c73a6dd9",
+                                                                            "type": "Rect"
+                                                                        },
+                                                                        "hover_glyph": null,
+                                                                        "muted_glyph": null
+                                                                    },
+                                                                    "id": "383a3064-b46d-4e46-ad30-4268c3a4c7f4",
+                                                                    "type": "GlyphRenderer"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "plot": {
+                                                                            "id": "0d9c9ea0-8f76-4423-9462-f57458c6391b",
+                                                                            "subtype": "Chart",
+                                                                            "type": "Plot"
+                                                                        }
+                                                                    },
+                                                                    "id": "939307ad-ad79-44f0-9f26-6ff1ba0cffcb",
+                                                                    "type": "SaveTool"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "callback": null,
+                                                                        "column_names": ["x", "y", "width", "height", "color", "fill_alpha", "line_color", "line_alpha", "label"],
+                                                                        "data": {
+                                                                            "Feature_name": ["Age_scaled"],
+                                                                            "chart_index": [{"Feature_name": "Age_scaled"}],
+                                                                            "color": ["#2b83ba"],
+                                                                            "fill_alpha": [0.8],
+                                                                            "height": [0.09769446850877933],
+                                                                            "label": [{"Feature_name": "Age_scaled"}],
+                                                                            "line_alpha": [1.0],
+                                                                            "line_color": ["white"],
+                                                                            "width": [0.8],
+                                                                            "x": ["Age_scaled"],
+                                                                            "y": [0.048847234254389665]
+                                                                        }
+                                                                    },
+                                                                    "id": "ea7a54fe-236a-40b5-975c-0d7659015ef3",
+                                                                    "type": "ColumnDataSource"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "fill_alpha": {"field": "fill_alpha"},
+                                                                        "fill_color": {"field": "color"},
+                                                                        "height": {"field": "height", "units": "data"},
+                                                                        "line_color": {"field": "line_color"},
+                                                                        "width": {"field": "width", "units": "data"},
+                                                                        "x": {"field": "x"},
+                                                                        "y": {"field": "y"}
+                                                                    },
+                                                                    "id": "3d4d4216-ebd1-43d5-a9f0-3a61f83a40f3",
+                                                                    "type": "Rect"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "data_source": {
+                                                                            "id": "141e2d56-a4a6-408e-a0f9-850032efd8f4",
+                                                                            "type": "ColumnDataSource"
+                                                                        },
+                                                                        "glyph": {
+                                                                            "id": "3d4d4216-ebd1-43d5-a9f0-3a61f83a40f3",
+                                                                            "type": "Rect"
+                                                                        },
+                                                                        "hover_glyph": null,
+                                                                        "muted_glyph": null
+                                                                    },
+                                                                    "id": "042a7b1a-f7d9-4f54-a41b-d214d1217360",
+                                                                    "type": "GlyphRenderer"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "fill_alpha": {"field": "fill_alpha"},
+                                                                        "fill_color": {"field": "color"},
+                                                                        "height": {"field": "height", "units": "data"},
+                                                                        "line_color": {"field": "line_color"},
+                                                                        "width": {"field": "width", "units": "data"},
+                                                                        "x": {"field": "x"},
+                                                                        "y": {"field": "y"}
+                                                                    },
+                                                                    "id": "a4b746b3-0f7c-4312-8bb3-9674ce6ff963",
+                                                                    "type": "Rect"
+                                                                }, {
+                                                                    "attributes": {},
+                                                                    "id": "04bbb35a-cbc1-4498-984a-6913e8def104",
+                                                                    "type": "CategoricalTickFormatter"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "plot": {
+                                                                            "id": "0d9c9ea0-8f76-4423-9462-f57458c6391b",
+                                                                            "subtype": "Chart",
+                                                                            "type": "Plot"
+                                                                        }
+                                                                    },
+                                                                    "id": "e74f6f80-c11d-4967-bbb8-980b3b2fb1e8",
+                                                                    "type": "ResetTool"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "fill_alpha": {"field": "fill_alpha"},
+                                                                        "fill_color": {"field": "color"},
+                                                                        "height": {"field": "height", "units": "data"},
+                                                                        "line_color": {"field": "line_color"},
+                                                                        "width": {"field": "width", "units": "data"},
+                                                                        "x": {"field": "x"},
+                                                                        "y": {"field": "y"}
+                                                                    },
+                                                                    "id": "e702bc33-2451-4f74-bcb6-9bc3491294c0",
+                                                                    "type": "Rect"
+                                                                }, {
+                                                                    "attributes": {},
+                                                                    "id": "37f94b54-eb17-4236-ad78-925f3d195176",
+                                                                    "type": "CategoricalTicker"
+                                                                }, {
+                                                                    "attributes": {},
+                                                                    "id": "25d275fd-cfb2-4103-8ff4-917dcafaa87b",
+                                                                    "type": "BasicTickFormatter"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "data_source": {
+                                                                            "id": "ea7a54fe-236a-40b5-975c-0d7659015ef3",
+                                                                            "type": "ColumnDataSource"
+                                                                        },
+                                                                        "glyph": {
+                                                                            "id": "a4b746b3-0f7c-4312-8bb3-9674ce6ff963",
+                                                                            "type": "Rect"
+                                                                        },
+                                                                        "hover_glyph": null,
+                                                                        "muted_glyph": null
+                                                                    },
+                                                                    "id": "84264c04-8071-46ba-850a-634dd9d16fd1",
+                                                                    "type": "GlyphRenderer"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "plot": {
+                                                                            "id": "0d9c9ea0-8f76-4423-9462-f57458c6391b",
+                                                                            "subtype": "Chart",
+                                                                            "type": "Plot"
+                                                                        }
+                                                                    },
+                                                                    "id": "d660bfa3-ce01-4d38-9603-9801c021603e",
+                                                                    "type": "PanTool"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "callback": null,
+                                                                        "column_names": ["x", "y", "width", "height", "color", "fill_alpha", "line_color", "line_alpha", "label"],
+                                                                        "data": {
+                                                                            "Feature_name": ["SibSp"],
+                                                                            "chart_index": [{"Feature_name": "SibSp"}],
+                                                                            "color": ["#2b83ba"],
+                                                                            "fill_alpha": [0.8],
+                                                                            "height": [0.03504837994215658],
+                                                                            "label": [{"Feature_name": "SibSp"}],
+                                                                            "line_alpha": [1.0],
+                                                                            "line_color": ["white"],
+                                                                            "width": [0.8],
+                                                                            "x": ["SibSp"],
+                                                                            "y": [0.01752418997107829]
+                                                                        }
+                                                                    },
+                                                                    "id": "e749c218-6ec0-4681-8e9a-621bb95542af",
+                                                                    "type": "ColumnDataSource"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "label": {"value": "male"},
+                                                                        "renderers": [{
+                                                                            "id": "9df10cc1-48d1-4a68-a21d-c3c094769255",
+                                                                            "type": "GlyphRenderer"
+                                                                        }]
+                                                                    },
+                                                                    "id": "d2955005-3cf8-42a6-b089-6bb6337a03b1",
+                                                                    "type": "LegendItem"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "fill_alpha": {"field": "fill_alpha"},
+                                                                        "fill_color": {"field": "color"},
+                                                                        "height": {"field": "height", "units": "data"},
+                                                                        "line_color": {"field": "line_color"},
+                                                                        "width": {"field": "width", "units": "data"},
+                                                                        "x": {"field": "x"},
+                                                                        "y": {"field": "y"}
+                                                                    },
+                                                                    "id": "b9db6af7-9420-4672-aa25-0da295098d12",
+                                                                    "type": "Rect"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "data_source": {
+                                                                            "id": "9545e678-d675-4271-8584-f4175c25c85b",
+                                                                            "type": "ColumnDataSource"
+                                                                        },
+                                                                        "glyph": {
+                                                                            "id": "fd44900d-e91d-4d43-bc54-05018eac94db",
+                                                                            "type": "Rect"
+                                                                        },
+                                                                        "hover_glyph": null,
+                                                                        "muted_glyph": null
+                                                                    },
+                                                                    "id": "b3c8025f-8f6c-4227-a3c2-0b07023e56f2",
+                                                                    "type": "GlyphRenderer"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "label": {"value": "Fare"},
+                                                                        "renderers": [{
+                                                                            "id": "ad8b20d1-4ce2-44db-8907-3832b6fdecec",
+                                                                            "type": "GlyphRenderer"
+                                                                        }]
+                                                                    },
+                                                                    "id": "25e02011-b006-4dff-864f-a7d259bf935e",
+                                                                    "type": "LegendItem"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "data_source": {
+                                                                            "id": "2c8b83e7-ed4b-4793-ba34-8c64522c93a9",
+                                                                            "type": "ColumnDataSource"
+                                                                        },
+                                                                        "glyph": {
+                                                                            "id": "7ec77f89-013d-4296-be13-76aba28f9c17",
+                                                                            "type": "Rect"
+                                                                        },
+                                                                        "hover_glyph": null,
+                                                                        "muted_glyph": null
+                                                                    },
+                                                                    "id": "c19acf03-eda1-4722-a4c7-9c5880d0ace3",
+                                                                    "type": "GlyphRenderer"
+                                                                }, {
+                                                                    "attributes": {
+                                                                        "data_source": {
+                                                                            "id": "e749c218-6ec0-4681-8e9a-621bb95542af",
+                                                                            "type": "ColumnDataSource"
+                                                                        },
+                                                                        "glyph": {
+                                                                            "id": "e702bc33-2451-4f74-bcb6-9bc3491294c0",
+                                                                            "type": "Rect"
+                                                                        },
+                                                                        "hover_glyph": null,
+                                                                        "muted_glyph": null
+                                                                    },
+                                                                    "id": "e65d74fa-93d0-4048-a69f-364840f77b34",
+                                                                    "type": "GlyphRenderer"
+                                                                }], "root_ids": ["0d9c9ea0-8f76-4423-9462-f57458c6391b"]
+                                                            }, "title": "Bokeh Application", "version": "0.12.5"
+                                                        }
+                                                    };
+                                                    var render_items = [{
+                                                        "docid": "e89b1889-b20d-4c46-82a6-a96bd7bd321f",
+                                                        "elementid": "102e88bd-2001-40a4-86e5-473d77e57aee",
+                                                        "modelid": "0d9c9ea0-8f76-4423-9462-f57458c6391b"
+                                                    }];
+
+                                                    Bokeh.embed.embed_items(docs_json, render_items);
+                                                };
+                                                if (document.readyState != "loading") fn();
+                                                else document.addEventListener("DOMContentLoaded", fn);
+                                            })();
+                                        },
+                                        function (Bokeh) {
+                                        }
+                                    ];
+
+                                    function run_inline_js() {
+
+                                        if ((window.Bokeh !== undefined) || (force === true)) {
+                                            for (var i = 0; i < inline_js.length; i++) {
+                                                inline_js[i](window.Bokeh);
+                                            }
+                                            if (force === true) {
+                                                display_loaded();
+                                            }
+                                        } else if (Date.now() < window._bokeh_timeout) {
+                                            setTimeout(run_inline_js, 100);
+                                        } else if (!window._bokeh_failed_load) {
+                                            console.log("Bokeh: BokehJS failed to load within specified timeout.");
+                                            window._bokeh_failed_load = true;
+                                        } else if (force !== true) {
+                                            var cell = $(document.getElementById("102e88bd-2001-40a4-86e5-473d77e57aee")).parents('.cell').data().cell;
+                                            cell.output_area.append_execute_result(NB_LOAD_WARNING)
+                                        }
+
+                                    }
+
+                                    if (window._bokeh_is_loading === 0) {
+                                        console.log("Bokeh: BokehJS loaded, going straight to plotting");
+                                        run_inline_js();
+                                    } else {
+                                        load_libs(js_urls, function () {
+                                            console.log("Bokeh: BokehJS plotting callback run at", now());
+                                            run_inline_js();
+                                        });
+                                    }
+                                }(this));
+                            </script>
+                        </div>
+
+                    </div>
+
                 </div>
             </div>
 
